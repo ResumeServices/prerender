@@ -16,5 +16,6 @@ server.use(prerender.removeScriptTags());
 server.use(prerender.httpHeaders());
 server.use(prerender.ignoreQueryParams());
 server.use(prerender.s3HtmlCache());
+server.use(prerender.mongoCacheExpireDate());
 
 server.start();
