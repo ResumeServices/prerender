@@ -24,10 +24,7 @@ cat <<EOF > /home/ubuntu/prerender-pm2-config.json
         "IGNORE_QUERY_PARAMS":"utm_content,utm_term,utm_source,email_hash,utm_campaign,utm_medium,passwordinput,userid,code,src,imt,_ke,_escaped_fragment_",
         "S3_BUCKET_NAME":"resume-prerender-cache",
         "ALLOWED_DOMAINS":"www.resume.com,employer.resume.com",
-        "WAIT_AFTER_LAST_REQUEST":500,
-        "JS_CHECK_TIMEOUT":1000,
-        "EVALUATE_JAVASCRIPT_CHECK_TIMEOUT":1000,
-        "PAGE_DONE_CHECK_TIMEOUT":1000,
+        "JS_TIMEOUT":15000,
         "MONGO_URL":"mongodb://prerender:n7ejAwRhkWhR@candidate.40.mongolayer.com:10700,candidate.41.mongolayer.com:10849/prerender?replicaSet=set-55b2caa535fae993ff0009a6"
       }
     }
