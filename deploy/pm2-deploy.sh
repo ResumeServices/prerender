@@ -21,7 +21,7 @@ cat <<EOF > /home/ubuntu/prerender-pm2-config.json
         "PORT":"6000",
         "NODE_ENV":"prod",
         "ROOT_URL":"http://localhost:6000",
-        "IGNORE_QUERY_PARAMS":"utm_content,utm_term,utm_source,email_hash,utm_campaign,utm_medium,passwordinput,userid,code,src,imt,_ke",
+        "IGNORE_QUERY_PARAMS":"utm_content,utm_term,utm_source,email_hash,utm_campaign,utm_medium,passwordinput,userid,code,src,imt,_ke,_escaped_fragment_",
         "S3_BUCKET_NAME":"resume-prerender-cache",
         "ALLOWED_DOMAINS":"www.resume.com,employer.resume.com",
         "WAIT_AFTER_LAST_REQUEST":500,
