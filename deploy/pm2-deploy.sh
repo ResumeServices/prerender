@@ -28,8 +28,7 @@ cat <<EOF > /home/ubuntu/prerender-pm2-config.json
         "JS_CHECK_TIMEOUT":1000,
         "EVALUATE_JAVASCRIPT_CHECK_TIMEOUT":1000,
         "PAGE_DONE_CHECK_TIMEOUT":1000,
-        "MONGO_URL":"mongodb://prerender:n7ejAwRhkWhR@candidate.40.mongolayer.com:10700,candidate.41.mongolayer.com:10849/prerender?replicaSet=set-55b2caa535fae993ff0009a6",
-        "CACHE_TIME_TO_LIVE_IN_DAYS":4
+        "MONGO_URL":"mongodb://prerender:n7ejAwRhkWhR@candidate.40.mongolayer.com:10700,candidate.41.mongolayer.com:10849/prerender?replicaSet=set-55b2caa535fae993ff0009a6"
       }
     }
   ]
