@@ -2,6 +2,85 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 5.4.2 - 2018-04-05
+### Changed
+- Removed the `Page.addScriptToEvaluateOnNewDocument({source: 'localStorage.clear()'})` since it seemed to be causing an issue with Chrome in some cases. Going to look for a better fix here since our context should be clearing this already.
+
+
+## 5.4.1 - 2018-04-05
+### Changed
+- For checking if a URL returns a redirect, we were checking to see if the request returning the redirect URL matched which failed in some cases where the encoding of the URL was different in the request. That code now checks the request ID to see if it matches the original request.
+- Service worker enable/disable can be enabled/disabled on a per tab basis by setting `req.prerender.enableServiceWorker` in the `requestReceived` event.
+
+
+## 5.4.0 - 2018-04-04
+### Changed
+- Added ability to turn on/off services workers.
+
+
+## 5.3.1 - 2018-03-09
+### Added
+- Added `this.isBrowserConnected = false` inside `server.restartBrowser()` so the prerender server won't try to render any new requests before the browser is actually restarted. Fixes a very small edge case at scale.
+
+
+## 5.3.0 - 2018-03-09
+### Added
+- Added `localStorage.clear()` on a new page being loaded due to bug in BrowserContext local storage being cleared: https://bugs.chromium.org/p/chromium/issues/detail?id=754576
+
+### Changed
+- Changed `document.getElementsByTagName('html')[0].outerHTML` to `document.firstElementChild.outerHTML` when querying page `html` to improve performance.
+
+## 5.2.2 - 2018-02-02
+### Changed
+- Make sure we only call `Buffer.byteLength` on a string to fix an error in newer versions of Node
+
+## 5.2.1 - 2018-01-29
+### Changed
+- Changed `request.loaderId` to `request.requestId` in `requestWillBeSent` due to issue with Chrome 64 changing loaderId format.
+
+## 5.2.0 - 2017-12-08
+### Added
+- Added ability for the prerender server to restart Chrome due to some connection issues we've been seeing after a server is running for a few hours.
+
+## 5.1.1 - 2017-12-08
+### Changed
+- Chrome re-uses the original request ID on a redirect so we are saving off the fact that we saw a redirect to make sure we return a correct 301
+- Changed dependencies from ^ to ~ to make the semver more specific
+
+## 5.1.0 - 2017-12-06
+### Added
+- Added removal of `<link rel="import" src="">` tags after the page is done loading to the `removeScriptTags` plugin. Imported HTML can have script tags in it, and since it's already been rendered to the page we can safely remove it when running that plugin.
+
+## 5.0.3 - 2017-11-29
+### Added
+- Added `if (window.customElements) customElements.forcePolyfill = true`, `ShadyDOM = {force: true}`, and `ShadyCSS = {shimcssproperties: true}` to fix Polymer app rendering.
+
+## 5.0.2 - 2017-11-20
+### Changed
+- Added back `res.setHeader` for plugins to use
+
+## 5.0.1 - 2017-11-15
+### Changed
+- Set `renderType` to `html` for non "/render" endpoint
+
+## 5.0.0 - 2017-11-15
+### Added
+- Added Headless Chrome as a rendering engine!
+- Added new event types: `requestReceived`, `tabCreated`, `pageLoaded`.
+- Added new Prerender server option: `chromeLocation`
+- Added ability to request jpg and png screenshots
+- Added ability to request pdf export of a page
+- Added ability to request HAR file of page load times
+
+### Changed
+- Removed PhantomJS and all references to it
+- Removed old event types: `beforePhantomRequest`, `onPhantomPageCreate`, `afterPhantomRequest`, `beforeSend`
+- Removed In Memory Cache (moved to new repo)
+- Removed S3 HTML Cache (moved to new repo)
+- Removed Prerender server options that are no longer needed: `workers`, `iterations`, `softIterations`, `cookiesEnabled`, `pageDoneCheckTimeout`, `resourceDownloadTimeout`, `jsTimeout`, `noJsExecutionTimeout`, `evaluateJavascriptCheckTimeout`
+
+See the Readme.me for in depth descriptions of all of the new changes!
+
 ## 4.4.1 - 2016-12-28
 ### Changed
 - Whoops. Make sure `shouldEncodeURLBeforeBrowserFetch` defaults to true.
