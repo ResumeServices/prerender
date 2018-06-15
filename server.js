@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 var prerender = require('./lib');
 
-var server = prerender();
+var server = prerender({
+    chromeFlags: ['--headless', '--disable-gpu', '--hide-scrollbars']
+});
 
 server.use(prerender.sendPrerenderHeader());
 // server.use(prerender.ignoreQueryParams());
