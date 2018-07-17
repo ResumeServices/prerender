@@ -6,6 +6,7 @@ var server = prerender({
 });
 
 server.use(prerender.sendPrerenderHeader());
+server.use(prerender.sendAccessLogToIndeed());
 // server.use(prerender.ignoreQueryParams());
 // server.use(prerender.blockResources());
 server.use(prerender.removeScriptTags());

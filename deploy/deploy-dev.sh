@@ -1,8 +1,8 @@
 #!/bin/bash
 cd ../../
 tar -zcvf ./build/prerender.tar.gz prerender
-scp -i ~/.ssh/dev-auto-scaling-group.pem ./build/prerender.tar.gz ubuntu@54.214.96.92:/home/ubuntu/build/prerender.tar.gz
-ssh  -i ~/.ssh/dev-auto-scaling-group.pem ubuntu@54.214.96.92 << EOF
+scp -i ~/.ssh/dev-auto-scaling-group.pem ./build/prerender.tar.gz ubuntu@54.244.172.197:/home/ubuntu/build/prerender.tar.gz
+ssh  -i ~/.ssh/dev-auto-scaling-group.pem ubuntu@54.244.172.197 << EOF
 sudo -s
 cd /home/ubuntu/build
 rm -rf prerender
