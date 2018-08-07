@@ -88,7 +88,7 @@ hooks:
 #      runas:
 # During the BeforeInstall deployment lifecycle event, run the commands
 #   in the script specified in "location".
-#  BeforeInstall:
+  BeforeInstall:
     - location: /deploy/pm2-deploy-before-install.sh
       timeout: 60
       runas: ubuntu
