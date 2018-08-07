@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 sudo chown -R ubuntu:ubuntu /home/ubuntu
 
 cd /home/ubuntu/prerender
