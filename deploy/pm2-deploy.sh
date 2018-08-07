@@ -4,7 +4,6 @@ sudo chown -R ubuntu:ubuntu /home/ubuntu
 
 cd /home/ubuntu/prerender
 
-sudo n 8
 npm install
 echo "App installed"
 
