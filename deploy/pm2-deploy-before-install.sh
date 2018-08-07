@@ -8,10 +8,10 @@ cd /tmp
 
 
 wget https://aws-codedeploy-us-west-2.s3.amazonaws.com/latest/install
-chmod +x ./install
+sudo chmod +x ./install
 sudo ./install auto
-service codedeploy-agent start
+sudo service codedeploy-agent start
 
-npm install -g n
+sudo npm install -g n
 
 
